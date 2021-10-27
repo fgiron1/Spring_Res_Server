@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fgiron.votosResourceServer.Models;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,9 +20,13 @@ public class Integrante implements Serializable{
     private String nombre;
     private String apellidos;
     private String cargo;
+    
     @ManyToOne(targetEntity = Voto_Partido.class,
             optional = false)
+    @JoinColumn(name = "id_partido")
     private Voto_Partido id_partido;
+    
+    public Integrante(){}
 
     public Integrante(String nombre, String apellidos, String cargo, Voto_Partido id_partido) {
         this.nombre = nombre;

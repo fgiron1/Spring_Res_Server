@@ -1,22 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fgiron.votosResourceServer.Models;
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 
 /**
  *
- * @author root
+ * @author fgiron
  */
 @Entity
 @Table(name = "Elecciones")
-public class Eleccion {
+public class Eleccion implements Serializable {
     
     private @Id @GeneratedValue Long id;
     private String provincia;
@@ -26,8 +24,11 @@ public class Eleccion {
     
     @ManyToOne(targetEntity = Tipo_Eleccion.class,
             optional = false)
+    @JoinColumn(name="id_tipo_eleccion")
     private Tipo_Eleccion id_tipo_eleccion;
 
+    public Eleccion(){}
+    
     public Eleccion(String provincia, ZonedDateTime instante_comienzo, ZonedDateTime instante_final, Tipo_Eleccion id_tipo_eleccion) {
         this.provincia = provincia;
         this.instante_comienzo = instante_comienzo;

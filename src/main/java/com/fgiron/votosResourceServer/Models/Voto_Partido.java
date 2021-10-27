@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fgiron.votosResourceServer.Models;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,19 +8,20 @@ import javax.persistence.Table;
 
 /**
  *
- * @author root
+ * @author fgiron
  */
 @Entity
 @Table(name = "Votos_partido")
-public class Voto_Partido {
+public class Voto_Partido implements Serializable {
     
     private @Id @GeneratedValue Long id;
-    private String nombre;
+    private String nombre;    
 
+    public Voto_Partido(){}
+    
     public Voto_Partido(String nombre) {
         this.nombre = nombre;
     }
-
     
     public Long getId() {
         return id;
@@ -40,6 +38,14 @@ public class Voto_Partido {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+   /* public List<Integrante> getIntegrante_list() {
+        return integrante_list;
+    }
+
+    public void setIntegrante_list(List<Integrante> integrante_list) {
+        this.integrante_list = integrante_list;
+    }*/
     
     
     

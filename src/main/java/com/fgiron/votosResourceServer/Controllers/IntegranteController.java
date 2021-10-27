@@ -1,7 +1,6 @@
 package com.fgiron.votosResourceServer.Controllers;
 
 import com.fgiron.votosResourceServer.Advice.EleccionNotFoundException;
-import com.fgiron.votosResourceServer.Models.Eleccion;
 import com.fgiron.votosResourceServer.Models.Integrante;
 import com.fgiron.votosResourceServer.Repositories.IntegranteRepository;
 import java.util.List;

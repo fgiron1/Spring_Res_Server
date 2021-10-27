@@ -1,43 +1,45 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.fgiron.votosResourceServer.Models;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
  *
- * @author root
+ * @author fgiron
  */
 @Entity
 @Table(name = "Votos_senado")
-public class Voto_Senado {
+public class Voto_Senado implements Serializable{
     
     private @Id @GeneratedValue Long id;
     
-    @ManyToMany(mappedBy = "id",
-            targetEntity = Candidato_Senado.class)
+    @ManyToOne(targetEntity = Candidato_Senado.class,
+            optional = false)
+    @JoinColumn(name="id_senador_1")
     private Candidato_Senado id_senador_1;
     
-    @ManyToMany(mappedBy = "id",
-            targetEntity = Candidato_Senado.class)
+    @ManyToOne(targetEntity = Candidato_Senado.class,
+            optional = true)
+    @JoinColumn(name="id_senador_2")
     private Candidato_Senado id_senador_2;
     
-    @ManyToMany(mappedBy = "id",
-            targetEntity = Candidato_Senado.class)
+    @ManyToOne(targetEntity = Candidato_Senado.class,
+            optional = true)
+    @JoinColumn(name="id_senador_3")
     private Candidato_Senado id_senador_3;
 
+    public Voto_Senado(){}
+    
     public Voto_Senado(Candidato_Senado id_senador_1, Candidato_Senado id_senador_2, Candidato_Senado id_senador_3) {
         this.id_senador_1 = id_senador_1;
         this.id_senador_2 = id_senador_2;
         this.id_senador_3 = id_senador_3;
     }    
-    
     
     public Long getId() {
         return id;
