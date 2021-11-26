@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
  *
  * @author fgiron
  */
-@Entity
+@Entity(name = "Elecciones")
 @Table(name = "Elecciones")
 public class Eleccion implements Serializable {
     

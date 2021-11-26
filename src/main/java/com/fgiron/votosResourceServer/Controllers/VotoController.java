@@ -25,8 +25,15 @@ public class VotoController {
     }
     
     @PostMapping("/voto")
-    public Voto insertarEleccion(@RequestBody Voto nuevoVoto){
-        return repo.save(nuevoVoto);
+    public int votar(@RequestBody int id_elecciones,
+                      @RequestBody int id_partido,
+                      @RequestBody String nombre_1,
+                      @RequestBody String nombre_2,
+                      @RequestBody String nombre_3,
+                      @RequestBody String apellido_1,
+                      @RequestBody String apellido_2,
+                      @RequestBody String apellido_3){
+        return repo.votar(id_elecciones, id_partido, nombre_1, nombre_2, nombre_3, apellido_1, apellido_2, apellido_3);
     }
     
 }

@@ -4,6 +4,8 @@ import com.fgiron.votosResourceServer.Advice.EleccionNotFoundException;
 import com.fgiron.votosResourceServer.Models.Eleccion;
 import com.fgiron.votosResourceServer.Repositories.EleccionRepository;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EleccionController {
 
+    @Autowired
     private final EleccionRepository repo;
     
     public EleccionController(EleccionRepository repo){
