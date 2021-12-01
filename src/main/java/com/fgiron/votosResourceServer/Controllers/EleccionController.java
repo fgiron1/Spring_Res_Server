@@ -29,7 +29,7 @@ public class EleccionController {
         this.repo = repo;
     }
     
-    @GetMapping("/elecciones")
+    @GetMapping("/eleccion")
     public List<Eleccion> getAllElecciones(){
         return repo.findAll();
     }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VotoController {
 
+    @Autowired
     private final VotoRepository repo;
     
     public VotoController(VotoRepository repo){
@@ -35,5 +37,17 @@ public class VotoController {
                       @RequestBody String apellido_3){
         return repo.votar(id_elecciones, id_partido, nombre_1, nombre_2, nombre_3, apellido_1, apellido_2, apellido_3);
     }
-    
+  
+    @PostMapping("/login/oauth2/code")
+    public void procesarAuth_Code(){
+
+        
+
+    }
+
+    @PostMapping("/authorized")
+    public void recibir_token(@RequestBody String jwt){
+
+    }
+
 }

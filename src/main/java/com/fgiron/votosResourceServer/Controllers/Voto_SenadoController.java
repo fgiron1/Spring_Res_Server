@@ -9,6 +9,7 @@ import com.fgiron.votosResourceServer.Repositories.Voto_SenadoRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Voto_SenadoController {
     
+    @Autowired
     private Voto_SenadoRepository repo;
     
     public Voto_SenadoController(Voto_SenadoRepository repo){
