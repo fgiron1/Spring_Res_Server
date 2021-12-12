@@ -1,6 +1,5 @@
 package com.fgiron.votosResourceServer.Models;
 
-import com.fgiron.votosResourceServer.Enums.TIPO_ELECCION;
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,11 +16,11 @@ import javax.persistence.Table;
 public class Tipo_Eleccion implements Serializable{
 
     private @Id @GeneratedValue Long id;
-    private TIPO_ELECCION tipo_eleccion;
+    private String tipo_eleccion;
 
     public Tipo_Eleccion(){}
     
-    public Tipo_Eleccion(TIPO_ELECCION tipo_eleccion) {
+    public Tipo_Eleccion(String tipo_eleccion) {
         this.tipo_eleccion = tipo_eleccion;
     }
     
@@ -33,11 +32,11 @@ public class Tipo_Eleccion implements Serializable{
         this.id = id;
     }
 
-    public TIPO_ELECCION getTipo_eleccion() {
+    public String getTipo_eleccion() {
         return tipo_eleccion;
     }
 
-    public void setTipo_eleccion(TIPO_ELECCION tipo_eleccion) {
+    public void setTipo_eleccion(String tipo_eleccion) {
         this.tipo_eleccion = tipo_eleccion;
     }
 

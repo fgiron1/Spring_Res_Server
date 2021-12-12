@@ -1,6 +1,7 @@
 package com.fgiron.votosResourceServer.Repositories;
 
 import com.fgiron.votosResourceServer.Models.Voto_Senado;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

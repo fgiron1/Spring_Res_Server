@@ -5,6 +5,7 @@
 package com.fgiron.votosResourceServer.Repositories;
 
 import com.fgiron.votosResourceServer.Models.Voto;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.query.Procedure;
 
@@ -15,7 +16,7 @@ import org.springframework.data.jpa.repository.query.Procedure;
 public interface VotoRepository extends JpaRepository<Voto, Long>{
     
     @Procedure(procedureName = "Votar")
-    public int votar(int id_elecciones,
+    public void votar(int id_elecciones,
                      int id_partido,
                      String nombre_1,
                      String nombre_2,

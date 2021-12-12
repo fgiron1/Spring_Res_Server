@@ -1,9 +1,14 @@
 package com.fgiron.votosResourceServer.Controllers;
 
 import com.fgiron.votosResourceServer.Advice.EleccionNotFoundException;
+import com.fgiron.votosResourceServer.Auth.AuthController;
 import com.fgiron.votosResourceServer.Models.Integrante;
 import com.fgiron.votosResourceServer.Repositories.IntegranteRepository;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  *
@@ -28,8 +38,13 @@ public class IntegranteController {
     }
     
     @GetMapping("/integrantes")
-    public List<Integrante> getAllIntegrantes(){
-        return repo.findAll();
+    public List<Integrante> getAllIntegrantes(@AuthenticationPrincipal Jwt jwt){
+        
+        if(AuthController.checkTokenPermissions(jwt, "integrantes.read")){
+            return repo.findAll();
+        } else {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
     }
     
     @GetMapping("/integrante/{id}")

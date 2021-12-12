@@ -33,13 +33,13 @@ public class Voto_PartidoController {
         return repo.findAll();
     }
     
-    @GetMapping("/partido/{id}")
+    @GetMapping("/partidos/{id}")
     public Voto_Partido getPartidoById(@PathVariable long id) throws EleccionNotFoundException{
         return repo.findById(id)
                 .orElseThrow(() -> new EleccionNotFoundException(id));
     }
     
-    @PutMapping("/partido/{id}")
+    @PutMapping("/partidos/{id}")
     public Voto_Partido actualizarEleccion(@RequestBody Voto_Partido nuevoPartido, @PathVariable long id) throws Exception{
         return repo.findById(id)
                 .map((Voto_Partido partido) -> {

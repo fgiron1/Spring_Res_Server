@@ -5,6 +5,7 @@
 package com.fgiron.votosResourceServer.Repositories;
 
 import com.fgiron.votosResourceServer.Models.Voto_Partido;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

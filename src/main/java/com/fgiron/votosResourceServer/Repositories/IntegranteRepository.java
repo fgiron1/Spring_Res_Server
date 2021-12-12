@@ -1,6 +1,7 @@
 package com.fgiron.votosResourceServer.Repositories;
 
 import com.fgiron.votosResourceServer.Models.Integrante;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
